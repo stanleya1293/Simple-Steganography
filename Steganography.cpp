@@ -2,11 +2,12 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
-void Steganography::getNthBit(char cipherChar, int n) {
-  cipherChar >> n;
+int Steganography::getNthBit(char cipherChar, int n) {
+  ((int) cipherChar) >> n;
   return (cipherChar % 2);
 }
 
@@ -48,7 +49,13 @@ void Steganography::cleanImage() {
 }
 
 void Steganography::encipher() {
-  
+  int colorDataIndex = 0;
+  for (int i = 0; i < cipherText.size(); i++) {
+    for (int j = 0; j <= 7; j++) {
+      colorData[colorDataIndex] = getNthBit(cipherText[i], j) + colorData[colorDataIndex];
+      colorDataIndex++;
+    }
+  }
 }
 
 void Steganography::decipher() {
