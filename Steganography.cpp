@@ -7,8 +7,7 @@
 using namespace std;
 
 int Steganography::getNthBit(char cipherChar, int n) {
-  ((int) cipherChar) >> n;
-  return (cipherChar % 2);
+  return ((cipherChar >> n) % 2);
 }
 
 void Steganography::readImage(std::string fileName) {
@@ -26,10 +25,34 @@ void Steganography::readImage(std::string fileName) {
   inFile.close();
 }
 
+void Steganography::printImage(std::string fileName) {
+  ofstream outFile;
+  outFile.open(fileName);
+  outFile << magicNumber << endl
+	  << width << " " << height << endl
+	  << maxColor << endl;
+  int counter = 0;
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
+      outFile << colorData[counter];
+      counter++;
+      outFile << " ";
+      outFile << colorData[counter];
+      counter++;
+      outFile << " ";
+      outFile << colorData[counter];
+      counter++;
+      outFile << " ";
+    }
+    outFile << endl;
+  }
+  outFile.close();
+}
+
 void Steganography::readCipherText(std::string fileName) {
   ifstream inFile;
   inFile.open(fileName);
-  inFile >> cipherText;
+  getline(inFile, cipherText);
   inFile.close();
 }
 
@@ -53,6 +76,7 @@ void Steganography::encipher() {
   for (int i = 0; i < cipherText.size(); i++) {
     for (int j = 0; j <= 7; j++) {
       colorData[colorDataIndex] = getNthBit(cipherText[i], j) + colorData[colorDataIndex];
+      cout << getNthBit(cipherText[i], j) << endl;
       colorDataIndex++;
     }
   }
