@@ -4,7 +4,7 @@ TARGET = steganography
 
 all: $(TARGET)
 
-TARGET: main.o Steganography.o
+$(TARGET): main.o Steganography.o
 	$(CC) main.o Steganography.o -o $(TARGET)
 
 main.o: main.cpp Steganography.h
@@ -14,4 +14,4 @@ Steganography.o: Steganography.cpp Steganography.h
 	$(CC) $(CFLAGS) Steganography.cpp -o Steganography.o
 
 clean:
-	$(RM) steganography *.o *~
+	$(RM) $(TARGET) *.o *~
