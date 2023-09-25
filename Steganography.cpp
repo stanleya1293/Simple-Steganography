@@ -76,7 +76,6 @@ void Steganography::encipher() {
   for (int i = 0; i < cipherText.size(); i++) {
     for (int j = 0; j <= 7; j++) {
       colorData[colorDataIndex] = getNthBit(cipherText[i], j) + colorData[colorDataIndex];
-      cout << getNthBit(cipherText[i], j) << endl;
       colorDataIndex++;
     }
   }
