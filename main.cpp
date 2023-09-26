@@ -1,3 +1,12 @@
+/**
+ * @file main.cpp
+ * @author Arden Stanley, Trey Wright
+ * @date 2023-09-25
+ * @brief The main driver for the steganography class showcasing its utility
+ * 
+ * 
+ */
+
 #include "Steganography.h"
 #include <iostream>
 
