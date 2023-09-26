@@ -1,3 +1,12 @@
+/**
+ * @file Steganography.h
+ * @author Arden Stanley, Trey Wright
+ * @date 2023-09-25
+ * @brief a steganography class to perform hiding functions on ppm files
+ * 
+ * 
+ */
+
 #ifndef STEGANOGRAPHY_H
 #define STEGANOGRAPHY_H
 

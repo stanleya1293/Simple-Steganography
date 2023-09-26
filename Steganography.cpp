@@ -1,3 +1,12 @@
+/**
+ * @file Steganography.cpp
+ * @author Arden Stanley, Trey Wright
+ * @date 2023-09-25
+ * @brief implementations for steganography class
+ * 
+ * 
+ */
+
 #include "Steganography.h"
 #include <iostream>
 #include <fstream>
